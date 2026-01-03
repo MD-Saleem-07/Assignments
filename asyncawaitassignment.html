@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space Launch Information Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #loading {
+            display: none;
+            color: blue;
+            margin-top: 10px;
+        }
+        #launchDetails {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Space Launch Information Dashboard</h2>
+
+    <button onclick="loadLaunch()">Load Latest Launch</button>
+
+    <div id="loading">Loading latest launch data...</div>
+
+    <div id="launchDetails"></div>
+
+    <script>
+        async function loadLaunch() {
+            const loading = document.getElementById("loading");
+            const details = document.getElementById("launchDetails");
+
+            loading.style.display = "block";
+            details.innerHTML = "";
+
+            try {
+                const response = await fetch("https://api.spacexdata.com/v4/launches/latest");
+
+                if (!response.ok) {
+                    throw new Error("API Error");
+                }
+
+                const data = await response.json();
+                details.innerHTML = "Mission Name: " + data.name;
+
+            } catch (error) {
+                details.innerHTML = "Error loading launch data";
+            } finally {
+                loading.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
