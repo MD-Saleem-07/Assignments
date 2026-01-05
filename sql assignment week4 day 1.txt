@@ -1,0 +1,3729 @@
+
+SQL> CREATE TABLE employee (
+  2      emp_id NUMBER PRIMARY KEY,
+  3      emp_name VARCHAR2(30),
+  4      gender VARCHAR2(10),
+  5      department VARCHAR2(20),
+  6      designation VARCHAR2(30),
+  7      salary NUMBER,
+  8      location VARCHAR2(20),
+  9      joining_date DATE,
+ 10      email VARCHAR2(50)
+ 11  );
+
+Table created.
+
+SQL> CREATE SEQUENCE emp_seq
+  2  START WITH 1
+  3  INCREMENT BY 1
+  4  NOCACHE;
+
+Sequence created.
+
+SQL> desc employee
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL NUMBER
+ EMP_NAME                                           VARCHAR2(30)
+ GENDER                                             VARCHAR2(10)
+ DEPARTMENT                                         VARCHAR2(20)
+ DESIGNATION                                        VARCHAR2(30)
+ SALARY                                             NUMBER
+ LOCATION                                           VARCHAR2(20)
+ JOINING_DATE                                       DATE
+ EMAIL                                              VARCHAR2(50)
+
+SQL> INSERT INTO employee VALUES (1001,'Arun','Male','IT','Developer',45000,'Chennai',TO_DATE('10-01-2022','DD-MM-YYYY'),'arun@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1002,'Divya','Female','HR','HR Executive',40000,'Bangalore',TO_DATE('15-05-2021','DD-MM-YYYY'),'divya@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1003,'Mubeen','Male','IT','Senior Developer',55000,'Chennai',TO_DATE('20-03-2023','DD-MM-YYYY'),'mubeen@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1004,'Ravi','Male','Finance','Accountant',NULL,'Mumbai',TO_DATE('18-07-2020','DD-MM-YYYY'),'ravi@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1005,'Anita','Female','Sales','Sales Executive',38000,'Delhi',TO_DATE('12-09-2022','DD-MM-YYYY'),'anita@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1006,'Kumar','Male','HR','Recruiter',32000,'Chennai',TO_DATE('05-11-2021','DD-MM-YYYY'),'kumar@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1007,'Divya','Female','IT','Tester',40000,'Bangalore',TO_DATE('25-06-2022','DD-MM-YYYY'),'divya.it@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1008,'Rahul','Male','IT','Developer',45000,'Chennai',TO_DATE('14-03-2020','DD-MM-YYYY'),NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1009,'Sneha','Female','Finance','Analyst',NULL,'Mumbai',TO_DATE('08-01-2023','DD-MM-YYYY'),'sneha@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1010,'Amit','Male','Sales','Sales Manager',60000,'Delhi',TO_DATE('01-12-2019','DD-MM-YYYY'),'amit@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1011,'Pooja','Female','HR','HR Executive',40000,'Chennai',TO_DATE('19-04-2021','DD-MM-YYYY'),NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1012,'Ramesh','Male','IT','Support Engineer',30000,'Hyderabad',TO_DATE('10-08-2022','DD-MM-YYYY'),'ramesh@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1013,'Suresh','Male','IT','Developer',45000,'Chennai',TO_DATE('30-10-2020','DD-MM-YYYY'),'suresh@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1014,'Neha','Female','Sales','Sales Executive',38000,'Delhi',TO_DATE('14-02-2023','DD-MM-YYYY'),'neha@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1015,'Arun','Male','IT','Developer',45000,'Chennai',TO_DATE('09-09-2021','DD-MM-YYYY'),'arun.it@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1016,'Kiran','Male','Finance','Accountant',NULL,'Mumbai',TO_DATE('21-12-2022','DD-MM-YYYY'),'kiran@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1017,'Meena','Female','HR','Recruiter',32000,'Bangalore',TO_DATE('11-06-2020','DD-MM-YYYY'),'meena@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1018,'Vijay','Male','IT','Tester',35000,'Hyderabad',TO_DATE('01-04-2023','DD-MM-YYYY'),NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1019,'Anita','Female','Sales','Sales Executive',38000,'Delhi',TO_DATE('07-07-2021','DD-MM-YYYY'),'anita.sales@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1020,'Rohit','Male','IT','Developer',45000,'Chennai',TO_DATE('18-11-2022','DD-MM-YYYY'),'rohit@company.com');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO employee VALUES (1021,'Sanjay','Male','IT','Developer',NULL,'Chennai',TO_DATE('02-02-2020','DD-MM-YYYY'),NULL);
+
+1 row created.
+
+
+
+
+
+
+     -- Display all employee records
+
+  3  SELECT * FROM employee;
+SELECT * FROM employee
+
+
+
+   -- Display only employee ID, name, and department
+
+SQL> SELECT emp_id, emp_name, department FROM employee;
+
+    EMP_ID EMP_NAME                       DEPARTMENT
+---------- ------------------------------ --------------------
+      1001 Arun                           IT
+      1002 Divya                          HR
+      1003 Mubeen                         IT
+      1004 Ravi                           Finance
+      1005 Anita                          Sales
+      1006 Kumar                          HR
+      1007 Divya                          IT
+      1008 Rahul                          IT
+      1009 Sneha                          Finance
+      1010 Amit                           Sales
+      1011 Pooja                          HR
+
+    EMP_ID EMP_NAME                       DEPARTMENT
+---------- ------------------------------ --------------------
+      1012 Ramesh                         IT
+      1013 Suresh                         IT
+      1014 Neha                           Sales
+      1015 Arun                           IT
+      1016 Kiran                          Finance
+      1017 Meena                          HR
+      1018 Vijay                          IT
+      1019 Anita                          Sales
+      1020 Rohit                          IT
+      1021 Sanjay                         IT
+
+21 rows selected.
+
+
+
+    -- Display employee name and salary
+
+
+SQL> SELECT emp_name, salary FROM employee;
+
+EMP_NAME                           SALARY
+------------------------------ ----------
+Arun                                45000
+Divya                               40000
+Mubeen                              55000
+Ravi
+Anita                               38000
+Kumar                               32000
+Divya                               40000
+Rahul                               45000
+Sneha
+Amit                                60000
+Pooja                               40000
+
+EMP_NAME                           SALARY
+------------------------------ ----------
+Ramesh                              30000
+Suresh                              45000
+Neha                                38000
+Arun                                45000
+Kiran
+Meena                               32000
+Vijay                               35000
+Anita                               38000
+Rohit                               45000
+Sanjay
+
+21 rows selected.
+
+
+
+
+   -- Salary > 40000
+
+
+SQL> SELECT * FROM employee WHERE salary > 40000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+amit@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+      1015 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+7 rows selected.
+
+
+
+
+-- Salary <= 35000
+
+
+
+SQL> SELECT * FROM employee WHERE salary <= 35000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+
+
+
+
+ -- Salary = 45000
+
+
+
+SQL> SELECT * FROM employee WHERE salary = 45000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun.it@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+
+
+ -- Joined after 01-Jan-2022
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE joining_date > TO_DATE('01-01-2022','DD-MM-YYYY');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+divya.it@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1012 Ramesh                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+10 rows selected.
+
+
+
+ -- Joined before 01-Jan-2021
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE joining_date < TO_DATE('01-01-2021','DD-MM-YYYY');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1021 Sanjay                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                                 Chennai              02-FEB-20
+
+
+
+6 rows selected.
+
+
+
+
+-- Salary between 35000 and 50000
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE salary BETWEEN 35000 AND 50000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+divya.it@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1011 Pooja                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+anita.sales@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+12 rows selected.
+
+
+
+-- Salary NOT between 30000 and 45000
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE salary NOT BETWEEN 30000 AND 45000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+
+
+
+ -- Joining date between 01-Jan-2021 and 31-Dec-2022
+
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE joining_date BETWEEN
+  3  TO_DATE('01-01-2021','DD-MM-YYYY')
+  4  AND TO_DATE('31-12-2022','DD-MM-YYYY');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1011 Pooja                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+rohit@company.com
+
+
+11 rows selected.
+
+
+
+ -- IT or HR departments
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE department IN ('IT','HR');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1008 Rahul                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+meena@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1020 Rohit                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+
+
+14 rows selected.
+
+
+
+
+
+
+-- Chennai, Bangalore, Hyderabad
+
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE location IN ('Chennai','Bangalore','Hyderabad');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1008 Rahul                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+meena@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1020 Rohit                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+
+
+14 rows selected.
+
+SQL>
+SQL> -- Salary IN (32000, 38000, 40000)
+SQL> SELECT * FROM employee
+  2  WHERE salary IN (32000,38000,40000);
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+divya.it@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1014 Neha                           Female     Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+8 rows selected.
+
+
+
+
+ -- Not working in Mumbai
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE location <> 'Mumbai';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+anita@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1007 Divya                          Female     IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1015 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+
+18 rows selected.
+
+
+
+
+ -- Department NOT in IT and HR
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE department NOT IN ('IT','HR');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+amit@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1016 Kiran                          Male       Finance
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+7 rows selected.
+
+
+
+ -- Designation NOT Developer and Tester
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE designation NOT IN ('Developer','Tester');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+anita@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1009 Sneha                          Female     Finance
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kiran@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1019 Anita                          Female     Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+13 rows selected.
+
+
+
+
+-- Name starts with 'A'
+
+
+
+SQL> SELECT * FROM employee
+     WHERE emp_name LIKE 'A%';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun.it@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+
+
+ -- Salary IS NULL
+
+
+
+
+SQL> SELECT * FROM employee
+     WHERE salary IS NULL;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+
+
+
+ -- Email IS NULL
+
+
+
+SQL> SELECT * FROM employee
+    WHERE email IS NULL;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+
+ 
+
+ -- Salary IS NOT NULL
+
+
+
+SQL> SELECT * FROM employee
+     WHERE salary IS NOT NULL;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+anita@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1007 Divya                          Female     IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1015 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+17 rows selected.
+  
+
+ -- Email IS NOT NULL
+
+
+
+SQL> SELECT * FROM employee
+    WHERE email IS NOT NULL;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+ravi@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1006 Kumar                          Male       HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1015 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+17 rows selected.
+
+
+
+
+ -- Name ends with 'i'
+
+
+
+SQL> SELECT * FROM employee
+    WHERE emp_name LIKE '%i';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+
+SQL>
+SQL> -- Name contains 'vi'
+SQL> SELECT * FROM employee
+  2  WHERE emp_name LIKE '%vi%';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+
+SQL>
+SQL> -- Email contains '@company.com'
+SQL> SELECT * FROM employee
+  2  WHERE email LIKE '%@company.com%';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+ravi@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1006 Kumar                          Male       HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1015 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+
+17 rows selected.
+
+
+
+
+ -- Designation ends with 'Engineer'
+
+
+
+
+
+SQL> SELECT * FROM employee
+    WHERE designation LIKE '%Engineer';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+
+SQL>
+SQL> -- Order by salary ASC
+SQL> SELECT * FROM employee
+  2  ORDER BY salary ASC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1005 Anita                          Female     Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+      1020 Rohit                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+      1004 Ravi                           Male       Finance
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+
+21 rows selected.
+
+
+
+ -- Order by department ASC, salary DESC
+
+
+SQL> SELECT * FROM employee
+     ORDER BY department ASC, salary DESC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1004 Ravi                           Male       Finance
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+divya@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1006 Kumar                          Male       HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun.it@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1001 Arun                           Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           45000 Chennai              10-JAN-22
+arun@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+amit@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+      1005 Anita                          Female     Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+
+21 rows selected.
+
+
+
+
+
+ -- Order by location ASC, name ASC
+
+
+
+SQL> SELECT * FROM employee
+    ORDER BY location ASC, emp_name ASC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+      1007 Divya                          Female     IT
+Tester                              40000 Bangalore            25-JUN-22
+divya.it@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+      1001 Arun                           Male       IT
+Developer                           45000 Chennai              10-JAN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun@company.com
+
+      1015 Arun                           Male       IT
+Developer                           45000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1006 Kumar                          Male       HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1008 Rahul                          Male       IT
+Developer                           45000 Chennai              14-MAR-20
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           45000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                                 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1013 Suresh                         Male       IT
+Developer                           45000 Chennai              30-OCT-20
+suresh@company.com
+
+      1010 Amit                           Male       Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    30000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              35000 Hyderabad            01-APR-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1016 Kiran                          Male       Finance
+Accountant                                Mumbai               21-DEC-22
+kiran@company.com
+
+      1004 Ravi                           Male       Finance
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Accountant                                Mumbai               18-JUL-20
+ravi@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                                   Mumbai               08-JAN-23
+sneha@company.com
+
+
+21 rows selected.
+
+
+
+
+ -- IT department AND salary > 45000
+
+
+
+
+SQL> SELECT * FROM employee
+    WHERE department = 'IT' AND salary > 45000;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1003 Mubeen                         Male       IT
+Senior Developer                    55000 Chennai              20-MAR-23
+mubeen@company.com
+
+
+SQL>
+SQL> -- HR OR Sales department
+SQL> SELECT * FROM employee
+  2  WHERE department IN ('HR','Sales');
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Bangalore            15-MAY-21
+divya@company.com
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Chennai              05-NOV-21
+kumar@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+amit@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Chennai              19-APR-21
+
+
+      1014 Neha                           Female     Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Bangalore            11-JUN-20
+meena@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+
+8 rows selected.
+
+
+
+ -- Update NULL salary to 50000
+
+
+SQL> UPDATE employee
+  2  SET salary = 50000
+  3  WHERE salary IS NULL;
+
+4 rows updated.
+
+
+
+
+ -- Increase salary by 5000 for IT employees
+
+
+SQL> UPDATE employee
+  2  SET salary = salary + 5000
+  3  WHERE department = 'IT';
+
+10 rows updated.
+
+
+
+ -- Update location to Hyderabad for HR employees
+
+
+
+SQL> UPDATE employee
+  2  SET location = 'Hyderabad'
+  3  WHERE department = 'HR';
+
+4 rows updated.
+
+
+
+ -- Same name more than once
+
+
+SQL> SELECT emp_name, COUNT(*)
+  2  FROM employee
+  3  GROUP BY emp_name
+  4  HAVING COUNT(*) > 1;
+
+EMP_NAME                         COUNT(*)
+------------------------------ ----------
+Anita                                   2
+Divya                                   2
+Arun                                    2
+
+
+
+-- Same salary
+
+
+
+SQL> SELECT salary, COUNT(*)
+  2  FROM employee
+  3  GROUP BY salary
+  4  HAVING COUNT(*) > 1;
+
+    SALARY   COUNT(*)
+---------- ----------
+     38000          3
+     50000          8
+     60000          2
+     40000          3
+     32000          2
+
+
+
+ -- Same department and same location
+
+
+
+
+SQL> SELECT department, location, COUNT(*)
+  2  FROM employee
+  3  GROUP BY department, location
+  4  HAVING COUNT(*) > 1;
+
+DEPARTMENT           LOCATION               COUNT(*)
+-------------------- -------------------- ----------
+Sales                Delhi                         4
+IT                   Hyderabad                     2
+Finance              Mumbai                        3
+IT                   Chennai                       7
+HR                   Hyderabad                     4
+
+
+
+
+ -- NOT working in IT
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE department <> 'IT';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Hyderabad            15-MAY-21
+divya@company.com
+
+      1004 Ravi                           Male       Finance
+Accountant                          50000 Mumbai               18-JUL-20
+ravi@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Hyderabad            05-NOV-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kumar@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                             50000 Mumbai               08-JAN-23
+sneha@company.com
+
+      1010 Amit                           Male       Sales
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Hyderabad            19-APR-21
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1016 Kiran                          Male       Finance
+Accountant                          50000 Mumbai               21-DEC-22
+kiran@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Hyderabad            11-JUN-20
+meena@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+anita.sales@company.com
+
+
+11 rows selected.
+
+
+
+
+ -- IT employees in Chennai
+
+
+
+
+SQL> SELECT * FROM employee
+  2  WHERE department = 'IT' AND location = 'Chennai';
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           50000 Chennai              10-JAN-22
+arun@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    60000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1008 Rahul                          Male       IT
+Developer                           50000 Chennai              14-MAR-20
+
+
+      1013 Suresh                         Male       IT
+Developer                           50000 Chennai              30-OCT-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+suresh@company.com
+
+      1015 Arun                           Male       IT
+Developer                           50000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1020 Rohit                          Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           50000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                           55000 Chennai              02-FEB-20
+
+
+
+7 rows selected.
+
+
+
+ -- Order by salary DESC and joining date ASC
+
+
+
+SQL> SELECT * FROM employee
+  2  ORDER BY salary DESC, joining_date ASC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    60000 Chennai              20-MAR-23
+mubeen@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1021 Sanjay                         Male       IT
+Developer                           55000 Chennai              02-FEB-20
+
+
+      1008 Rahul                          Male       IT
+Developer                           50000 Chennai              14-MAR-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1004 Ravi                           Male       Finance
+Accountant                          50000 Mumbai               18-JUL-20
+ravi@company.com
+
+      1013 Suresh                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           50000 Chennai              30-OCT-20
+suresh@company.com
+
+      1015 Arun                           Male       IT
+Developer                           50000 Chennai              09-SEP-21
+arun.it@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1001 Arun                           Male       IT
+Developer                           50000 Chennai              10-JAN-22
+arun@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           50000 Chennai              18-NOV-22
+rohit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1016 Kiran                          Male       Finance
+Accountant                          50000 Mumbai               21-DEC-22
+kiran@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                             50000 Mumbai               08-JAN-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+sneha@company.com
+
+      1007 Divya                          Female     IT
+Tester                              45000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1011 Pooja                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Hyderabad            19-APR-21
+
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Hyderabad            15-MAY-21
+divya@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1018 Vijay                          Male       IT
+Tester                              40000 Hyderabad            01-APR-23
+
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+neha@company.com
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    35000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1017 Meena                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Hyderabad            11-JUN-20
+meena@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Hyderabad            05-NOV-21
+kumar@company.com
+
+
+21 rows selected.
+
+
+
+
+-- Order by salary DESC
+
+
+
+
+SQL> SELECT * FROM employee
+  2  ORDER BY salary DESC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1003 Mubeen                         Male       IT
+Senior Developer                    60000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1021 Sanjay                         Male       IT
+Developer                           55000 Chennai              02-FEB-20
+
+
+      1015 Arun                           Male       IT
+Developer                           50000 Chennai              09-SEP-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun.it@company.com
+
+      1008 Rahul                          Male       IT
+Developer                           50000 Chennai              14-MAR-20
+
+
+      1009 Sneha                          Female     Finance
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Analyst                             50000 Mumbai               08-JAN-23
+sneha@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           50000 Chennai              18-NOV-22
+rohit@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1004 Ravi                           Male       Finance
+Accountant                          50000 Mumbai               18-JUL-20
+ravi@company.com
+
+      1013 Suresh                         Male       IT
+Developer                           50000 Chennai              30-OCT-20
+suresh@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1016 Kiran                          Male       Finance
+Accountant                          50000 Mumbai               21-DEC-22
+kiran@company.com
+
+      1001 Arun                           Male       IT
+Developer                           50000 Chennai              10-JAN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun@company.com
+
+      1007 Divya                          Female     IT
+Tester                              45000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1011 Pooja                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Hyderabad            19-APR-21
+
+
+      1002 Divya                          Female     HR
+HR Executive                        40000 Hyderabad            15-MAY-21
+divya@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1018 Vijay                          Male       IT
+Tester                              40000 Hyderabad            01-APR-23
+
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+neha@company.com
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    35000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1006 Kumar                          Male       HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Recruiter                           32000 Hyderabad            05-NOV-21
+kumar@company.com
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Hyderabad            11-JUN-20
+meena@company.com
+
+
+21 rows selected.
+
+
+
+
+
+ -- Order by joining date ASC
+
+
+
+
+SQL> SELECT * FROM employee
+  2  ORDER BY joining_date ASC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                           55000 Chennai              02-FEB-20
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1008 Rahul                          Male       IT
+Developer                           50000 Chennai              14-MAR-20
+
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Hyderabad            11-JUN-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+meena@company.com
+
+      1004 Ravi                           Male       Finance
+Accountant                          50000 Mumbai               18-JUL-20
+ravi@company.com
+
+      1013 Suresh                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           50000 Chennai              30-OCT-20
+suresh@company.com
+
+      1011 Pooja                          Female     HR
+HR Executive                        40000 Hyderabad            19-APR-21
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1002 Divya                          Female     HR
+HR Executive                        40000 Hyderabad            15-MAY-21
+divya@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1015 Arun                           Male       IT
+Developer                           50000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Hyderabad            05-NOV-21
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+kumar@company.com
+
+      1001 Arun                           Male       IT
+Developer                           50000 Chennai              10-JAN-22
+arun@company.com
+
+      1007 Divya                          Female     IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Tester                              45000 Bangalore            25-JUN-22
+divya.it@company.com
+
+      1012 Ramesh                         Male       IT
+Support Engineer                    35000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1020 Rohit                          Male       IT
+Developer                           50000 Chennai              18-NOV-22
+rohit@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1016 Kiran                          Male       Finance
+Accountant                          50000 Mumbai               21-DEC-22
+kiran@company.com
+
+      1009 Sneha                          Female     Finance
+Analyst                             50000 Mumbai               08-JAN-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+sneha@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1003 Mubeen                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Senior Developer                    60000 Chennai              20-MAR-23
+mubeen@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              40000 Hyderabad            01-APR-23
+
+
+
+21 rows selected.
+
+
+
+
+
+ -- Order by employee name alphabetically
+
+
+
+
+SQL> SELECT * FROM employee
+  2  ORDER BY emp_name ASC;
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1010 Amit                           Male       Sales
+Sales Manager                       60000 Delhi                01-DEC-19
+amit@company.com
+
+      1019 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                07-JUL-21
+anita.sales@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1005 Anita                          Female     Sales
+Sales Executive                     38000 Delhi                12-SEP-22
+anita@company.com
+
+      1001 Arun                           Male       IT
+Developer                           50000 Chennai              10-JAN-22
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+arun@company.com
+
+      1015 Arun                           Male       IT
+Developer                           50000 Chennai              09-SEP-21
+arun.it@company.com
+
+      1002 Divya                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Hyderabad            15-MAY-21
+divya@company.com
+
+      1007 Divya                          Female     IT
+Tester                              45000 Bangalore            25-JUN-22
+divya.it@company.com
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1016 Kiran                          Male       Finance
+Accountant                          50000 Mumbai               21-DEC-22
+kiran@company.com
+
+      1006 Kumar                          Male       HR
+Recruiter                           32000 Hyderabad            05-NOV-21
+kumar@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1017 Meena                          Female     HR
+Recruiter                           32000 Hyderabad            11-JUN-20
+meena@company.com
+
+      1003 Mubeen                         Male       IT
+Senior Developer                    60000 Chennai              20-MAR-23
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+mubeen@company.com
+
+      1014 Neha                           Female     Sales
+Sales Executive                     38000 Delhi                14-FEB-23
+neha@company.com
+
+      1011 Pooja                          Female     HR
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+HR Executive                        40000 Hyderabad            19-APR-21
+
+
+      1008 Rahul                          Male       IT
+Developer                           50000 Chennai              14-MAR-20
+
+
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+      1012 Ramesh                         Male       IT
+Support Engineer                    35000 Hyderabad            10-AUG-22
+ramesh@company.com
+
+      1004 Ravi                           Male       Finance
+Accountant                          50000 Mumbai               18-JUL-20
+ravi@company.com
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+      1020 Rohit                          Male       IT
+Developer                           50000 Chennai              18-NOV-22
+rohit@company.com
+
+      1021 Sanjay                         Male       IT
+Developer                           55000 Chennai              02-FEB-20
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+
+
+      1009 Sneha                          Female     Finance
+Analyst                             50000 Mumbai               08-JAN-23
+sneha@company.com
+
+      1013 Suresh                         Male       IT
+
+    EMP_ID EMP_NAME                       GENDER     DEPARTMENT
+---------- ------------------------------ ---------- --------------------
+DESIGNATION                        SALARY LOCATION             JOINING_D
+------------------------------ ---------- -------------------- ---------
+EMAIL
+--------------------------------------------------
+Developer                           50000 Chennai              30-OCT-20
+suresh@company.com
+
+      1018 Vijay                          Male       IT
+Tester                              40000 Hyderabad            01-APR-23
+
+
+
+21 rows selected.
